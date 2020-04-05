@@ -1,2 +1,2 @@
-# rl-projects
-projects done as part of exploring reinforcement learning. 
+# Reinforcement Learning projects. 
+
