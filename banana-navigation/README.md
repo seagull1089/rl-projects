@@ -1,6 +1,6 @@
 # Project 1: Navigation
 
-## Introduction
+## Problem statement
 
 For this project, you will train an agent to navigate (and collect bananas!) in a large, square world.
 
@@ -28,7 +28,9 @@ The task is episodic, and in order to solve the environment, your agent must get
 
 - Hyperparams:
 
-  - eps_start=1.0, eps_end=0.001, eps_decay=0.995
+  - eps_start=1.0
+  - eps_end=0.001
+  - eps_decay=0.995
   - BUFFER_SIZE = int(1e5) # replay buffer size
   - BATCH_SIZE = 64 # minibatch size
   - GAMMA = 0.99 # discount factor
@@ -41,3 +43,6 @@ The task is episodic, and in order to solve the environment, your agent must get
 - Scores vs Number of episodes plot:
 
   - ![Scores vs Number of episodes plot](plot.png)
+
+[//]: # "Image References"
+[image1]: https://user-images.githubusercontent.com/10624937/42135619-d90f2f28-7d12-11e8-8823-82b970a54d7e.gif "Trained Agent"
