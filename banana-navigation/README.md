@@ -17,6 +17,21 @@ The state space has 37 dimensions and contains the agent's velocity, along with 
 
 The task is episodic, and in order to solve the environment, your agent must get an average score of +13 over 100 consecutive episodes.
 
+
+
+## Installation instructions
+- make sure you have anaconda installed - https://docs.anaconda.com/anaconda/install/. 
+- then run this command to create banana-navigation environment:
+  ```conda env create -f environment.yml```
+- activate the environment: ```conda activate banana-navigation```  
+- install the jupyter kernel: ```ipython kernel install --name "banana-navigation" --user```
+
+## How to run this code
+- Launch jupyter notebook from the ```banana-navigation``` folder:
+  ```jupyter lab```
+- Open ```Navigation.ipynb``` file and set banana-navigation as your kernel. 
+- Run through each of the code cells. (shift + enter)
+
 ## Solution and Implementation Details:
 
 - The model is implemented as a simple DQN network.
@@ -43,6 +58,12 @@ The task is episodic, and in order to solve the environment, your agent must get
 - Scores vs Number of episodes plot:
 
   - ![Scores vs Number of episodes plot](plot.png)
+
+## Future Improvement Ideas
+Some ideas to explore to improve upon the current implementation.
+* Explore Prioritized Experience Replay. 
+* Implement a model based on CNNs which can take the pixelated input and produce the action probabilities.
+Hopefully by end of the course, will add some more ideas to this list. 
 
 [//]: # "Image References"
 [image1]: https://user-images.githubusercontent.com/10624937/42135619-d90f2f28-7d12-11e8-8823-82b970a54d7e.gif "Trained Agent"
