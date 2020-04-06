@@ -34,7 +34,7 @@ The task is episodic, and in order to solve the environment, your agent must get
 
 ## Solution and Implementation Details:
 
-- The model is implemented as a simple DQN network.
+- The model is implemented as a simple DQN network (based on the DQN problem of the course) .
 
   - Fully connected Deep Network with relu activations except the (last) output layer.
   - hidden layers are of dimensions: 128,256,256
