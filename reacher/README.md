@@ -6,6 +6,7 @@
 
 This the second project in the Udacity's Deep Reinforcement Learning Nanodegree.
 
+for the report - check here: [Report](Report.md)
 ## Introduction
 
 Goal is solve the [Reacher](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher) environment.
