@@ -13,7 +13,7 @@ DDPG Highlights:
     - optimizers for actor and critic networks. 
     - OU-Noise generator. 
 
-- Network structures:
+- Network structures(implemented in model.py):
     - Actor: has two fully connected layers wih 256 and 128 dimensions. After the first layer, the outputs of the first layer go through batch normalization. The activation functions used are leaky_relu functions. 
     - Critic: has again two fully connected layers with 256 and 128 dimensions. The Critic takes (state,action) to provide the Q values. The action values are added to the network in the second layer. 
 
@@ -38,4 +38,7 @@ DDPG Highlights:
 - ![Scores vs Number of episodes plot](scores_plot.png)
 
 ## Future Work
-- A3C, PPO, Prioritized Replay
+- This is a very baseline implemetation to solve this problem. One of the pain points was the training time for this implementation. 
+- In order to imrove the training speeds, we can definitely explore Asynchronous Methods for Deep Reinforcement Learning.
+- Prioritized Replay also looks like a promising direction to reduce the training time. 
+- Proximal Policy Optimization (PPO) methods also looks like a promising direction to stabilize the training. (Haven't seen it happening in the multi agent scenario, but in the single agent scenario, the scores were oscillating.)
