@@ -35,7 +35,7 @@ DDPG Highlights:
 
 ## Plot of Rewards
 - Number of episodes needed to reach an average score of 30 over last 100 episodes = 100. 
-![Scores vs Number of episodes plot](scores_plot.png)
+- ![Scores vs Number of episodes plot](scores_plot.png)
 
 ## Future Work
 - A3C, PPO, Prioritized Replay
