@@ -4,7 +4,7 @@
 
 # Project 2: Continuous Control
 
-This the second project in the Udacity's Reinforcement Learning Nano degree. 
+This the second project in the Udacity's Deep Reinforcement Learning Nanodegree.
 
 ## Introduction
 
@@ -13,8 +13,8 @@ Goal is solve the [Reacher](https://github.com/Unity-Technologies/ml-agents/blob
 ![Trained Agent][image1]
 
 ### Project Details/ Details of the environment: 
-- In this environment, a double-jointed arm can move to target locations. A reward of +0.1 is provided for each step that the agent's hand is in the goal location. Thus, the goal of your agent is to maintain its position at the target location for as many time steps as possible.
 
+- In this environment, a double-jointed arm can move to target locations. A reward of +0.1 is provided for each step that the agent's hand is in the goal location. Thus, the goal of your agent is to maintain its position at the target location for as many time steps as possible.
 - The observation space consists of 33 variables corresponding to position, rotation, velocity, and angular velocities of the arm. Each action is a vector with four numbers, corresponding to torque applicable to two joints. Every entry in the action vector should be a number between -1 and 1.
 
 
@@ -28,7 +28,6 @@ For this project, we chose the environment with 20 agents.
 
 ### Solved environment details
 - In this (solved) project, the agent was able to reach an average score (over last 100 episodes) of 30 in the first 100 episodes itself. 
-
 - The solution was implemented using a modifield implementation of  DDPG used in the Pendulam task (more details in the Report.md).
 
 
@@ -37,9 +36,9 @@ For this project, we chose the environment with 20 agents.
 ### Environment setup Instructions
 
 - make sure you have anaconda installed - https://docs.anaconda.com/anaconda/install/.
-- then run this command to create continuous-control environment: conda env create -f - environment.yml
-- activate the environment: conda activate continuous-control
-- install the jupyter kernel: ipython kernel install --name "continuos-control" --user
+- then run this command to create continuous-control environment: ```conda env create -f - environment.yml```
+- activate the environment: ```conda activate continuous-control```
+- install the jupyter kernel: ```ipython kernel install --name "continuos-control" --user```
 
 
 ### Download the Unity Environment
@@ -60,6 +59,6 @@ For this project, we chose the environment with 20 agents.
 
 ### To Run the code
 - Launch jupyter notebook from the continuous-control folder: jupyter lab
-- Open Continuous_Control.ipynb file and set continuous-control as your kernel.
+- Open ```Continuous_Control.ipynb``` file and set continuous-control as your kernel.
 - Set the Unity Environment path according to your OS (Cell number 2 in the notebook). 
 - Run through each of the code cells. (shift + enter)
