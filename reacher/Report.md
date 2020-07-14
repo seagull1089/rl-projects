@@ -5,6 +5,10 @@ DDPG Highlights:
 - Uses Actor with Target Network and Critic with target network to learn. 
 - Uses Ornstein-Uhlenbeck process to generate noise which is then added to the actions at each time step. The noise generated in this process is correllated with the state (previously generated noise) and is not random. 
 
+The solution is mostly from the Baseline implemetation notes provided in the course. The following tips really helped in reaching the scores faster. 
+- Gradient clipping for the critic. 
+- invoke train for every 5 steps and train for 10 batches.   
+
 ## Learning Algorithm and Hyper Parameters
 - The DDPG Agent has the following components (implementd in ddpg_agent.py): 
     - Replay Buffer
