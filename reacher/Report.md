@@ -38,7 +38,7 @@ The solution is mostly from the Baseline implemetation notes provided in the cou
 
 
 ## Plot of Rewards
-- Number of episodes needed to reach an average score of 30 over last 100 episodes = 100. 
+- Number of episodes needed to reach an average score of 30 over last 100 episodes = 113. 
 - ![Scores vs Number of episodes plot](scores_plot.png)
 
 ## Future Work
