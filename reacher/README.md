@@ -28,7 +28,7 @@ There are two environments available to solve:
 For this project, we chose the environment with 20 agents. 
 
 ### Solved environment details
-- In this (solved) project, the agent was able to reach an average score (over last 100 episodes) of 30 in 113 episodes. 
+- In this (solved) project, the agent was able to reach an average score (over last 100 episodes) of 30 in 103 episodes. 
 - The solution was implemented using a modifield implementation of  DDPG used in the Pendulam task (more details in the Report.md).
 
 

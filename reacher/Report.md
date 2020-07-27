@@ -1,9 +1,12 @@
 ## Implementation Details
 - For this problem, we chose an implementation outlined in the paper Continuous Control with Deep Reinforcement Learning. The Algorithm is called DDPG (Deep Deterministic Policy Gradient). It is an off policy algorithm, that can be used for continous action spaces. 
 
-DDPG Highlights: 
-- Uses Actor with Target Network and Critic with target network to learn. 
-- Uses Ornstein-Uhlenbeck process to generate noise which is then added to the actions at each time step. The noise generated in this process is correllated with the state (previously generated noise) and is not random. 
+### DDPG Algorithm details. 
+- Is an off policy algorithm designed for continuos actions spaces. 
+- The Algorithm concurrently learns a policy and a Q function. 
+- The Algorithm also employs target networks, namely Actor with Target Network and Critic with target network to learn. 
+- In order to make the DDPG policies to explore better, the algorithm also uses Ornstein-Uhlenbeck process to generate noise which is then added to the actions at each time step. 
+    - One characteristic of the the noise generated in this process is that it is correllated with the state (previously generated noise) and is not random. 
 
 The solution is mostly from the Baseline implemetation notes provided in the course. The following tips really helped in reaching the scores faster. 
 - Gradient clipping for the critic. 
@@ -38,7 +41,7 @@ The solution is mostly from the Baseline implemetation notes provided in the cou
 
 
 ## Plot of Rewards
-- Number of episodes needed to reach an average score of 30 over last 100 episodes = 113. 
+- Number of episodes needed to reach an average score of 30 over last 100 episodes = 103. 
 - ![Scores vs Number of episodes plot](scores_plot.png)
 
 ## Future Work
