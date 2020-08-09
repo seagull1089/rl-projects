@@ -28,7 +28,7 @@ The environment is considered solved, when the average (over 100 episodes) of th
 
 ### Solved environment details
 - The environment is solved in 715 episodes. 
-- The solution implements the Multi Agent Deep Deterministic Policy Gradient Algorithm. More details in the Report.md
+- The solution implements the Multi Agent Deep Deterministic Policy Gradient Algorithm. More details are in [Report.md](./README.md)
 - The code heavily relied on the DDPG implemetation of the continuous control project (problem 2)
 
 ## Setup Instructions
