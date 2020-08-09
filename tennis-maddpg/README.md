@@ -63,7 +63,7 @@ The environment is considered solved, when the average (over 100 episodes) of th
 
 
 
-### (Optional: Not solved for this submission ) Challenge: Crawler Environment
+### (Optional: Not solved for this submission ) Challenge: Soccer Environment
 
 After you have successfully completed the project, you might like to solve the more difficult **Soccer** environment.
 
