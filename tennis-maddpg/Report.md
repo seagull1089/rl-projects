@@ -7,7 +7,7 @@
 
 
 ### MADDPG details 
-MADDPG extends the DDPG algorithm. Common RL approaches in a multi agent setting have to struggle to learn to predict not only it's actions but also of the other agents to be successful. This problem appears to be more severe in the competitive situations. This problem is solved in the MADDPG framework of centralized training with decentralized execution.  The framework allows sharing of all the agents observations and actions during training and the sharing can disabled during the execution time. In this implemetation, we share a common replay buffer for training all the agents. The actors (in the Agents) still base their actions on their local observations, however during the training phase the critics will have access to all the peers states and actions leading them to be more accurate in the multi agent environment.
+MADDPG extends the DDPG algorithm for a Multi Agent setting with some interesting changes in the training step. Common RL approaches in a multi agent setting have to struggle to learn to predict not only it's actions but also of the other agents to be successful (non stationary enviroment). This problem appears to be more severe in the competitive situations. MADDPG framework tackles this probem with centralized training with decentralized execution method.  The framework allows sharing of all the agents observations and actions during training. The actors still base their actions on their local observations, however during the training phase the critics will have access to all the peers states and actions leading them to be more accurate in the multi agent environment. 
 
 ![MADDPG training and execution setting][image1]
 
@@ -55,6 +55,7 @@ The solution is mostly from the Baseline implemetation notes provided in the cou
 - ![Scores vs Number of episodes plot](scores_plot.png)
 
 ## Future Work
+- The paper ( Multi Agent Actor Critic for Mixed Cooperative Competetive Environments) talks about a training process to utilize ensemble of policies for each agent as well, which seems interesting as well. 
 - Solving the soccer environment.
 - Explore Asynchronous Methods for Deep Reinforcement Learning.
 - Implement Proximal Policy Optimization (PPO) methods. 
