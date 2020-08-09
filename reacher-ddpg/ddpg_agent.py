@@ -24,80 +24,6 @@ TRAIN_STEPS = 10
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 
-class MADDPG():
-    """
-     A Multi Agent Deep Determinsitic Policy Gradient implementation. 
-     - Initializes all the Agents  (DDPG from problem2)
-     - Has a centralized replay buffer, instead of per agent buffer (as per the MADDPG paper)
-     - The step method invokes the learn method on each agent for every learn_every steps. 
-
-     Paramters: 
-     - num_agents (int)
-     - state_size (int)
-     - action_size (int)
-     - random_seed (int)
-     - params: A dictionary of tunable parameters for training. 
-        - BUFFER_SIZE
-        - BATCH_SIZE 
-        - TRAIN_STEPS 
-        - LEARN_EVERY
-
-    for the Agent: 
-            - GAMMA
-            - LR_ACTOR 
-            - LR_CRITIC
-            - WEIGHT_DECAY
-            - EPSILON
-            - EPSILON_DECAY
-            - TAU
-
-    """
-    def __init__(self, num_agents, state_size, action_size, random_seed, params):
-        self.batch_size = params.get('BATCH_SIZE', BATCH_SIZE)
-        self.buffer_size = params.get('BUFFER_SIZE', BUFFER_SIZE)
-        self.train_steps = params.get('TRAIN_STEPS', TRAIN_STEPS)
-        self.learn_every = params.get('LEARN_EVERY', LEARN_EVERY)
-
-        self.memory = ReplayBuffer(action_size, self.buffer_size,
-                                   self.batch_size, random_seed)
-        self.agents = [Agent(state_size,action_size,random_seed,params) for _ in range(num_agents)]         
-
-    def reset(self):
-        """
-            resets the agents. 
-        """
-        for agent in self.agents:
-            agent.reset()
-
-    def act(self, states, add_noise=True):
-        """[summary]
-
-        Args:
-            states (list of states for each agent): 2D array
-            add_noise (bool, optional): [description]. Defaults to True.
-
-        Returns:
-            actions by each agent. 
-        """
-        actions = [agent.act(state, add_noise) for agent, state in zip(self.agents, states)]
-        return actions
-
-    def step(self, states, actions, rewards, next_states, dones, timestep):
-        """ save the tuples to memory and for learn_every steps, do the training for each agent """
-        for state, action, reward, next_state, done in zip(states, actions, rewards, next_states, dones):
-            self.memory.add(state, action, reward, next_state, done)
-
-        
-        if timestep > 0 % self.learn_every == 0:        
-            if len(self.memory) > self.batch_size:
-                closs = []
-                aloss = []
-                for agent in self.agents:
-                    for _ in range(self.train_steps):
-                        experiences = self.memory.sample()
-                        agent.learn(experiences)
-    
-
 class Agent():
     """Interacts with and learns from the environment."""
 
@@ -109,7 +35,11 @@ class Agent():
             state_size (int): dimension of each state
             action_size (int): dimension of each action
             random_seed (int): random seed
-            params: Dictionary of String to values.        
+            params: Dictionary of String to values. 
+            - BATCH_SIZE
+            - BUFFER_SIZE
+            - TRAIN_STEPS
+            - LEARN_EVERY 
             - GAMMA
             - LR_ACTOR 
             - LR_CRITIC
@@ -122,7 +52,10 @@ class Agent():
         self.state_size = state_size
         self.action_size = action_size
         random.seed(random_seed)
-        
+        self.batch_size = params.get('BATCH_SIZE', BATCH_SIZE)
+        self.buffer_size = params.get('BUFFER_SIZE', BUFFER_SIZE)
+        self.train_steps = params.get('TRAIN_STEPS', TRAIN_STEPS)
+        self.learn_every = params.get('LEARN_EVERY', LEARN_EVERY)
         self.gamma = params.get('GAMMA', GAMMA)
         self.epsilon = params.get('EPSILON', EPSILON)
         self.epsilon_decay = params.get('EPSILON_DECAY', EPSILON_DECAY)
@@ -152,6 +85,30 @@ class Agent():
 
         # Noise process
         self.noise = OUNoise(action_size, random_seed)
+
+        # Replay memory
+        self.memory = ReplayBuffer(
+            action_size,
+            self.buffer_size,
+            self.batch_size,
+            random_seed)
+
+    def step(self, states, actions, rewards, next_states, dones, timestep):
+        """Save experience in replay memory, and use 
+        random sample from buffer to learn.
+        """
+        # Save experience / reward
+        for (state, action, reward, next_state, done) in \
+                zip(states, actions, rewards, next_states, dones):
+            self.memory.add(state, action, reward, next_state, done)
+
+        # Learn, if enough samples are available in memory
+        if timestep > 0 and len(self.memory) > self.batch_size and \
+                timestep % self.learn_every == 0:
+            # print(f"training at {timestep} for 10 batches.")
+            for _ in range(self.train_steps):
+                experiences = self.memory.sample()
+                self.learn(experiences)
 
     def act(self, state, add_noise=True):
         """Returns actions for given state as per current policy."""
