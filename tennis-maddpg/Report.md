@@ -5,11 +5,11 @@
 
 ## Implementation Details
 
+
 ### MADDPG details 
-MADDPG extends the DDPG algorithm. Common RL approaches in a multi agent setting have to struggle to learn to predict not only it's actions but also of the other agents to be successful. This problem is more severe in the competitive situations. By sharing a common replay buffer, the MADDPG powers the critics with all of the peers information and making the environment more predictable. The actors (in the Agents) still base their actions on their local observations, the critics have all the information available during the training phase 
+MADDPG extends the DDPG algorithm. Common RL approaches in a multi agent setting have to struggle to learn to predict not only it's actions but also of the other agents to be successful. This problem appears to be more severe in the competitive situations. This problem is solved in the MADDPG framework of centralized training with decentralized execution.  The framework allows sharing of all the agents observations and actions during training and the sharing can disabled during the execution time. In this implemetation, we share a common replay buffer for training all the agents. The actors (in the Agents) still base their actions on their local observations, however during the training phase the critics will have access to all the peers states and actions leading them to be more accurate in the multi agent environment.
 
 ![MADDPG training and execution setting][image1]
-- 
 
 The DDPG algorithm has the following features (just for reference)
 - Is an off policy algorithm designed for continuos actions spaces. 
@@ -55,6 +55,7 @@ The solution is mostly from the Baseline implemetation notes provided in the cou
 - ![Scores vs Number of episodes plot](scores_plot.png)
 
 ## Future Work
-- In order to imrove the training speeds, we can definitely explore Asynchronous Methods for Deep Reinforcement Learning.
-- Prioritized Replay also looks like a promising direction to reduce the training time. 
-- Proximal Policy Optimization (PPO) methods also looks like a promising direction to stabilize the training. (Haven't seen it happening in the multi agent scenario, but in the single agent scenario, the scores were oscillating.)
+- Solving the soccer environment.
+- Explore Asynchronous Methods for Deep Reinforcement Learning.
+- Implement Proximal Policy Optimization (PPO) methods. 
+- Implement Prioritized Replay buffer. 
