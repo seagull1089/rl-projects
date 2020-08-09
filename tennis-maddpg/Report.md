@@ -63,6 +63,5 @@ The solution is mostly from the Baseline implemetation notes provided in the cou
 
 ## To follow up, based on the reviewer's coments: 
 - [Advanced DQNs playing pacman with deep reinforcement learning](https://towardsdatascience.com/advanced-dqns-playing-pac-man-with-deep-reinforcement-learning-3ffbd99e0814)
-- [Deep Reinforcement Learning using Capsules
+- [Deep Reinforcement Learning using Capsules in Advanced Game Environments](https://arxiv.org/pdf/1801.09597.pdf)
 - [Deep Reinforcement Learning in continuous spaces](http://proceedings.mlr.press/v80/lee18b/lee18b.pdf)
-in Advanced Game Environments](https://arxiv.org/pdf/1801.09597.pdf)
