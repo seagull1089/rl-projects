@@ -1,4 +1,4 @@
-name: continuos-control
+name: tennis-maddpg
 channels:
   - pytorch
   - defaults

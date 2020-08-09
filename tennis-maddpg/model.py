@@ -50,7 +50,7 @@ class Actor(nn.Module):
     def forward(self, state):
         """Build an actor (policy) network that maps states -> actions."""
         x = self.fc1(state)
-        x = self.bn1(x)
+        #x = self.bn1(x)
         x = F.leaky_relu(x)
         x = self.fc2(x)
         x = F.leaky_relu(x)
@@ -94,7 +94,7 @@ class Critic(nn.Module):
         maps (state, action) pairs -> Q-values.
         """
         x = self.fc1(state)
-        x = self.bn1(x)
+        #x = self.bn1(x)
         x = F.leaky_relu(x)
         x = torch.cat((x, action), dim=1)
         x = self.fc2(x)
